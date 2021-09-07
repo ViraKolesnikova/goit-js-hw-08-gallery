@@ -67,10 +67,13 @@ const galleryItems = [
 const galleryList = document.querySelector('.js-gallery');
 const galleryImages = document.querySelectorAll('.gallery__image');
 const modalWindow = document.querySelector('div.lightbox');
-const modalImage = document.querySelector('lightbox__image');
-
+const modalImage = document.querySelector('.lightbox__image')
+const modalCloseBtn = document.querySelector('.lightbox__button');
+const overlay = document.querySelector('.lightbox__overlay');
 
 galleryList.addEventListener('click', onGalleryItemClick);
+modalCloseBtn.addEventListener('click', onCloseBtnClick);
+overlay.addEventListener('click', onOverlayClickCloseModal);
 
 function makeGalleryItems(items) {
   const galleryNewItems = items.map(({ preview, original, description }) => {
@@ -84,11 +87,24 @@ function makeGalleryItems(items) {
 makeGalleryItems(galleryItems);
 
 function onGalleryItemClick(event) {
+  event.preventDefault();
   if (!event.target.classList.contains('gallery__image')) {
     return;
-  }
-  
-  
+  }  
   modalWindow.classList.add('is-open');
-  
+  modalImage.src = event.target.dataset.source;
+  modalImage.alt = event.target.alt;  
 }
+
+function onCloseBtnClick(event) {
+  modalWindow.classList.remove('is-open');
+  modalImage.src = '';
+  modalImage.alt = '';
+}
+
+function onOverlayClickCloseModal(event) {
+  modalWindow.classList.remove('is-open');
+  modalImage.src = '';
+  modalImage.alt = '';
+}
+
