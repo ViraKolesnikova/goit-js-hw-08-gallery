@@ -68,7 +68,7 @@ const galleryList = document.querySelector('.js-gallery');
 const galleryImages = document.querySelectorAll('.gallery__image');
 const modalWindow = document.querySelector('div.lightbox');
 const modalImage = document.querySelector('lightbox__image');
-console.log(modalImage);
+
 
 galleryList.addEventListener('click', onGalleryItemClick);
 
@@ -89,5 +89,6 @@ function onGalleryItemClick(event) {
   }
   
   
-  // modalWindow.classList.add('is-open');
+  modalWindow.classList.add('is-open');
+  
 }
