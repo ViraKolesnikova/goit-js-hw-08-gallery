@@ -138,3 +138,20 @@ body {
 .lightbox__button:focus {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.lightbox__left-button {
+  position: absolute;
+  z-index: 10;
+  left: 8px;
+  width: 48px;
+  height: 48px;
+  background-image: url('../images/left-arrow.svg');
+}
+
+.lightbox__right-button {
+  position: absolute;
+  right: 8px;
+  width: 48px;
+  height: 48px;
+  background-image: url('../images/right-arrow.svg');
+}
